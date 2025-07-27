@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const kSubtitleColor = Color.fromARGB(255, 186, 192, 196);
-const kExerciseCardColor = Color.fromARGB(255, 163, 172, 176);
+const kExerciseCardColor = Color.fromARGB(255, 212, 221, 225);
 const kMainWhiteColor = Color(0xFFF5F5F5);
 const kMainColor = Color.fromARGB(255, 4, 120, 245);
 

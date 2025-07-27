@@ -5,6 +5,7 @@ import 'package:workout_planner/constants/responsive.dart';
 import 'package:workout_planner/data/equipment_data.dart';
 import 'package:workout_planner/data/exercise_data.dart';
 import 'package:workout_planner/data/user_data.dart';
+import 'package:workout_planner/pages/equipment_page.dart';
 import 'package:workout_planner/pages/exercise_details_page.dart';
 import 'package:workout_planner/widgets/exercise_card.dart';
 import 'package:workout_planner/widgets/progress_card.dart';
@@ -82,10 +83,10 @@ String formattedDay = dayFormat.format(now);
                     GestureDetector(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => ExerciseDetailsPage(
-                            exerciseTitle: "Equipment",
-                            exerciseDescription: "Explore various workout equipment.",
-                            exerciseList: exerciseList,
+                          builder: (context) => EquipmentDetailPage(
+                            equipmentTitle: "Equipment",
+                            equipmentDescription: "Explore various workout equipment.",
+                            equipmentList: equipmentList,
                           ),
                         ));
                       },

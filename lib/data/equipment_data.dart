@@ -16,7 +16,7 @@ final List<Equipment> equipmentList = [
       id: 2,
       equipmentName: "Barbell",
       equipmentDescription: "A barbell is a long bar with weights on either end, used for weightlifting.",
-      equipmentImageUrl: "assets/equipments/barbell.png",
+      equipmentImageUrl: "assets/equipments/gym.png",
       noOfMinutes: 45,
       noOfCalories: 300.0,
       handOvered: false,
