@@ -16,7 +16,7 @@ final String description;
       width: MediaQuery.of(context).size.width * 0.4,
       
       decoration: BoxDecoration(
-        color: kSubtitleColor,
+        color: kExerciseCardColor,
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
