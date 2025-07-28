@@ -35,7 +35,7 @@ class EquipmentCard extends StatelessWidget {
             Text(
               equipmentName,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 14,
                 fontWeight: FontWeight.bold,
                 color: kMainBlackColor,
               ),

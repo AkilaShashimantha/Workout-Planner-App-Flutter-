@@ -79,7 +79,7 @@ String formattedDay = dayFormat.format(now);
                           ),
                         ));
                       },
-                      child: ExerciseCard(title: "WarmUp", imageUrl: "assets/exercises/yoga.png", description: "See more")),
+                      child: ExerciseCard(title: "WarmUp", imageUrl: "assets/exercises/stretching.png", description: "See more")),
                     GestureDetector(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(
