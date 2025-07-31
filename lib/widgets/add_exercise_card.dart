@@ -7,12 +7,21 @@ class AddExerciseCard extends StatefulWidget {
 final String exerciseTitle;
 final String exerciseImageUrl;
 final int noOfMinutes;
+final bool isAdded;
+final bool isFavorite;
+final void Function() toggleAdddExercise;
+final void Function() toggleAddFavExercise;
 
   const AddExerciseCard(
     {super.key,
     required this.exerciseTitle,
     required this.exerciseImageUrl,
-    required this.noOfMinutes});
+    required this.noOfMinutes,
+    required this.toggleAdddExercise,
+    required this.toggleAddFavExercise,
+    required this.isAdded,
+    required this.isFavorite,
+    });
 
   @override
   State<AddExerciseCard> createState() => _AddExerciseCardState();
@@ -73,7 +82,12 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                     borderRadius: BorderRadius.circular(15),
                     color: kSubtitleColor,
                   ),
-                  child: IconButton(onPressed: () {}, icon: Icon(Icons.add), color: kMainDarkBlueColor, iconSize: 30,),
+                  child: IconButton(onPressed: () {
+                    widget.toggleAdddExercise();
+                  }, icon: Icon(
+                    widget.isAdded ? Icons.remove : Icons.add,
+                    
+                    ), color: kMainDarkBlueColor, iconSize: 30,),
                 ),
                 Container(
                   width: 60,
@@ -82,7 +96,14 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                     borderRadius: BorderRadius.circular(15),
                     color: kSubtitleColor,
                   ),
-                  child: IconButton(onPressed: () {}, icon: Icon(Icons.favorite_border_outlined), color: kSubPinkColor, iconSize: 30,),
+                  child: IconButton(onPressed: () {
+                      widget.toggleAddFavExercise();
+                  },
+                   icon: Icon(
+                    widget.isFavorite ? Icons.favorite : Icons.favorite_outline,
+                   ),color: kSubPinkColor, iconSize: 30,
+                   ),
+
                 )
               ],
             ),
