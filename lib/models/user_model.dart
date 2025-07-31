@@ -66,7 +66,7 @@ void addEquipment(Equipment equipment) {
 
 //method to remove equipment from the user's equipment list
 void removeEquipment(Equipment equipment) {
-  equipmentList.remove(equipment); 
+  equipmentList.remove(equipment);
   
    }
 

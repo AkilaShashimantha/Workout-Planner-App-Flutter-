@@ -21,6 +21,7 @@ class _AddNewPageState extends State<AddNewPage> {
 final userData = user;
 
 final exerciseList = ExerciseData().exerciseList;
+final equipmentList = EquipmentData().equipmentList;
 
   @override
   Widget build(BuildContext context) {
@@ -120,43 +121,38 @@ final exerciseList = ExerciseData().exerciseList;
                     height: MediaQuery.of(context).size.height * 0.32,
                     child: ListView.builder(
                       scrollDirection: Axis.vertical,
-                      itemCount: EquipmentData().equipmentList.length,
+                      itemCount:equipmentList.length,
                       itemBuilder: (context, index) {
-                        Equipment equipment = EquipmentData().equipmentList[index];
+                        Equipment equipment = equipmentList[index];
                         return AddEquipmentCard(
                           equipmentName: equipment.equipmentName,
                           equipmentDescription: equipment.equipmentDescription,
                           equipmentImageUrl: equipment.equipmentImageUrl,
                           noOfMinutes: equipment.noOfMinutes,
                           noOfCalories: equipment.noOfCalories,
-
                           isAddEquipment: userData.equipmentList.contains(equipment),
                           isAddFavEquipment: userData.favEquipmentList.contains(equipment),
                           toggleAddEquipment: () {
-                            // Handle add equipment toggle
                             setState(() {
                               if(userData.equipmentList.contains(equipment)){
                                 userData.removeEquipment(equipment);
-                                print('Removed ${equipment.equipmentName}. Current equipment list: ${userData.equipmentList.map((e) => e.equipmentName).toList()}');
-                              }
-                              else{
+                                print(userData.equipmentList.length);
+                              }else{
                                 userData.addEquipment(equipment);
-                                 print('Added ${equipment.equipmentName}. Current equipment list: ${userData.equipmentList.map((e) => e.equipmentName).toList()}');
+                                print(userData.equipmentList.length);
                               }
                             });
-                                                     
                           },
-
                           toggleAddFavEquipment: () {
-                          setState(() {
-                              if(userData.favEquipmentList.contains(equipment)){
+                            if(userData.favEquipmentList.contains(equipment)){
                               userData.removeFavEquipment(equipment);
+                              print(userData.favEquipmentList.length);
                             }else{
                               userData.addFavEquipment(equipment);
-                               print('Added ${equipment.equipmentName}. Current equipment list: ${userData.equipmentList.map((e) => e.equipmentName).toList()}');
+                               print(userData.favEquipmentList.length);
                             }
-                          });
                           },
+
                         );
                       },
                       ),

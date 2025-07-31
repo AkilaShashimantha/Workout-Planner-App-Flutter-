@@ -10,7 +10,6 @@ class AddEquipmentCard extends StatefulWidget {
   final double noOfCalories;
   final bool isAddEquipment;
   final bool isAddFavEquipment;
-
   final void Function() toggleAddEquipment;
   final void Function() toggleAddFavEquipment;
 
@@ -25,6 +24,7 @@ class AddEquipmentCard extends StatefulWidget {
     required this.isAddEquipment,
     required this.isAddFavEquipment,
     required this.toggleAddFavEquipment,
+    
   });
 
   @override
@@ -124,8 +124,7 @@ class _AddEquipmentCardState extends State<AddEquipmentCard> {
                           borderRadius: BorderRadius.circular(15),
                           color: kSubtitleColor,
                         ),
-                        child: IconButton(
-                          onPressed: () {
+                        child: IconButton(onPressed: () {
                             widget.toggleAddEquipment();
                           },
                           icon: Icon(
@@ -147,9 +146,8 @@ class _AddEquipmentCardState extends State<AddEquipmentCard> {
                             widget.toggleAddFavEquipment();
                           },
                           icon: Icon(
-                            widget.isAddFavEquipment
-                                ? Icons.favorite
-                                : Icons.favorite_border_outlined,
+                            widget.isAddFavEquipment ? Icons.favorite : Icons.favorite_outline,
+                                
                           ),
                           color: kSubPinkColor,
                           iconSize: 30,

@@ -100,7 +100,7 @@ class _AddExerciseCardState extends State<AddExerciseCard> {
                       widget.toggleAddFavExercise();
                   },
                    icon: Icon(
-                    widget.isFavorite ? Icons.favorite : Icons.favorite_outline,
+                    widget.isFavorite ? Icons.favorite : Icons.favorite_outline
                    ),color: kSubPinkColor, iconSize: 30,
                    ),
 
