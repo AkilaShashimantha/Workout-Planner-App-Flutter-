@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:workout_planner/constants/colors.dart';
 import 'package:workout_planner/constants/responsive.dart';
 import 'package:workout_planner/data/user_data.dart';
+import 'package:workout_planner/models/equipment_model.dart';
 import 'package:workout_planner/models/exercise_model.dart';
 
 class FavouritePage extends StatefulWidget {
@@ -50,6 +51,7 @@ String formattedDay = dayFormat.format(now);
                   fontWeight: FontWeight.w600,
                   color: kMainColor,
                 ),),
+                 SizedBox(height: 10),
                 //Exercise Grid view
               GridView.builder(
                 shrinkWrap: true,
@@ -58,6 +60,7 @@ String formattedDay = dayFormat.format(now);
                   crossAxisCount: 2,
                   crossAxisSpacing: kDefaultPadding,
                   mainAxisSpacing: kDefaultPadding,
+                  childAspectRatio: 16/17,
                   ),
                   itemCount: userData.favExerciseList.length,
                 itemBuilder: (context, index){
@@ -82,7 +85,7 @@ String formattedDay = dayFormat.format(now);
                             fit: BoxFit.cover,
                           ),
                           Text(
-                            favExercise.noOfMinutes.toString(),
+                            "${favExercise.noOfMinutes.toString()} min workout",
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.normal,
@@ -94,7 +97,71 @@ String formattedDay = dayFormat.format(now);
                     ),
                   );
                 },
+                ),
+                 SizedBox(height: 10),
+                   Text("Here are all your favorite Equipments.", style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                  color: kMainColor,
+                ),),
+                 SizedBox(height: 10),
+                //Exercise Grid view
+              GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: kDefaultPadding,
+                  mainAxisSpacing: kDefaultPadding,
+                  childAspectRatio: 16/24,
+                  ),
+                  itemCount: userData.favEquipmentList.length,
+                itemBuilder: (context, index){
+                  Equipment favEquipments = userData.favEquipmentList[index];
+
+                  return Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(kDefaultPadding),
+                      child: Column(
+                        children: [
+                          Text(favEquipments.equipmentName,
+                          style: TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold
+
+                          ),
+                          ),
+                          SizedBox(height: 10,),
+                          Image.asset(
+                            favEquipments.equipmentImageUrl,
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ),
+                          Text(
+                            "${favEquipments.noOfMinutes.toString()} min workout",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
+                              color: kMainPinkColor,
+                            ),
+                          ),
+                          SizedBox(height: 5,),
+                             Text(
+                           favEquipments.equipmentDescription,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.normal,
+                              color: kSubtitleColor,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
                 )
+
 
               ],
             ),

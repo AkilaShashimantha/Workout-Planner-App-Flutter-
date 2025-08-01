@@ -39,6 +39,6 @@ User user = User(
     ),
   ],
   favExerciseList: [
-    Exercise(id: 1, exercisename: "Push Up", exerciseImageUrl: "assets/exercises/exercise.png", noOfMinutes: 10, completed: false),
+    Exercise(id: 1, exercisename: "Push Up", exerciseImageUrl: "assets/exercises/push-ups.png", noOfMinutes: 10, completed: false),
   ],
 );
