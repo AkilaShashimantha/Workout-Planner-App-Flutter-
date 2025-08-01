@@ -13,8 +13,8 @@ User user = User(
   totlExercisesCompleted: 10,
   totalequipmentHandOvered: 5,
   exerciseList: [
-    Exercise(id: 1, exercisename: "Push Up", exerciseImageUrl: "assets/exercises/exercise.png", noOfMinutes: 10, completed: false),
-    Exercise(id: 2, exercisename: "Squat", exerciseImageUrl: "assets/exercises/cobra.png", noOfMinutes: 15, completed: false),
+    Exercise(id: 1, exercisename: "Push Up", exerciseImageUrl: "assets/exercises/push-ups.png", noOfMinutes: 10, completed: false),
+    Exercise(id: 2, exercisename: "Squat", exerciseImageUrl: "assets/exercises/squats.png", noOfMinutes: 15, completed: false),
   ],
   equipmentList: [
     Equipment(

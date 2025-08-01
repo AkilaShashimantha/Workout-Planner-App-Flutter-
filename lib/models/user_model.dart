@@ -82,4 +82,26 @@ void removeFavEquipment(Equipment equipment){
   favEquipmentList.remove(equipment);
 }
 
+//method calculate the total exercises spend
+
+int calculateTotalMinutesSpend(){
+  int totalMinutesSpend =0;
+
+//loop through the exerciseList and calculate the no og minutes
+
+for( var exercise in exerciseList){
+  totalMinutesSpend += exercise.noOfMinutes;
+}
+
+//loop through the equipmentsList and calculate the no og minutes
+
+for( var equipment in equipmentList){
+  totalMinutesSpend += equipment.noOfMinutes;
+
+}
+
+  return totalMinutesSpend;
+}
+
+
 }
