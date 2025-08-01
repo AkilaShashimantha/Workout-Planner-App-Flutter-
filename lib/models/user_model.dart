@@ -11,7 +11,7 @@ final String gender;
 final String address;
 final int age;
 final String description;
-int totlExercisesCompleted = 0;
+int totalExercisesCompleted = 0;
 int totalequipmentHandOvered = 0;
 
 final List<Exercise> exerciseList;
@@ -27,7 +27,7 @@ User({
   required this.address,
   required this.age,
   required this.description,
-  required this.totlExercisesCompleted,
+  required this.totalExercisesCompleted,
   required this.totalequipmentHandOvered,
   required this.exerciseList,
   required this.equipmentList,
@@ -103,5 +103,56 @@ for( var equipment in equipmentList){
   return totalMinutesSpend;
 }
 
+//method to mark as exrcise completed
+
+void markExerciseAsCompleted(int exerciseId){
+
+final exercise = exerciseList.firstWhere((exercise) => exercise.id == exerciseId);
+
+
+exercise.completed = true;
+//remove from the exercise
+
+removeExercise(exercise);
+
+totalExercisesCompleted++;
+
+}
+
+//method to mark an equpment as handed over
+
+void markAsHandOvered(int equipmentId){
+
+  final equipment = equipmentList.firstWhere((equipment) => equipment.id == equipmentId);
+
+equipment.handOvered == true;
+
+removeEquipment(equipment);
+
+totalequipmentHandOvered++;
+
+}
+
+//method to calculate  the total number of calories burned by the user
+
+double calculateTotalCaloriesBurned(){
+
+double totalCaloriesBurned = 0;
+
+for( var equipment in equipmentList){
+  totalCaloriesBurned += equipment.noOfCalories;
+}
+//cover the totalCaloriesBurned in to a value between 0-1
+if(totalCaloriesBurned >0 && totalCaloriesBurned <=10){
+  totalCaloriesBurned = totalCaloriesBurned/10;
+}
+if(totalCaloriesBurned >10 && totalCaloriesBurned <=100){
+  totalCaloriesBurned = totalCaloriesBurned/100;
+}
+if(totalCaloriesBurned >100 && totalCaloriesBurned <=1000){
+  totalCaloriesBurned = totalCaloriesBurned/1000;
+}
+return totalCaloriesBurned;
+}
 
 }

@@ -29,27 +29,30 @@ class _ProfileCardState extends State<ProfileCard> {
         color: kExerciseCardColor,
 
       ),
-      child: Row(
-        children: [
-          Image.asset(widget.taskImageUrl,
-          width: 50,
-          fit: BoxFit.cover,
-          ),
-          SizedBox(width: 10,),
-          Text(
-            widget.taskName,
-            style: TextStyle(
-              fontSize: 10,
-              fontWeight: FontWeight.bold
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Image.asset(widget.taskImageUrl,
+            width: 50,
+            fit: BoxFit.cover,
             ),
-            
-          ),
-          SizedBox(width: 10),
-          IconButton(onPressed: () {
-              widget.markAsDone();
-                    }, icon: Icon(Icons.check))
-
-        ],
+            SizedBox(width: 30,),
+            Text(
+              widget.taskName,
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.bold
+              ),
+              
+            ),
+            Spacer(),
+            IconButton(onPressed: () {
+                widget.markAsDone();
+                      }, icon: Icon(Icons.check))
+        
+          ],
+        ),
       ),
     );
   }

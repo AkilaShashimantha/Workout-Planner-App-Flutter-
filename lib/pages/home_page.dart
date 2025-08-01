@@ -55,7 +55,7 @@ String formattedDay = dayFormat.format(now);
                 ),),
                 SizedBox(height: 20),
                 ProgressCard(
-                  progressValue:0.3,
+                  progressValue:userData.calculateTotalCaloriesBurned(),
                   total: 100,
                 ),
 

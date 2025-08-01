@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:workout_planner/constants/colors.dart';
 import 'package:workout_planner/constants/responsive.dart';
 import 'package:workout_planner/data/user_data.dart';
+import 'package:workout_planner/models/equipment_model.dart';
 import 'package:workout_planner/models/exercise_model.dart';
 import 'package:workout_planner/widgets/profile_card.dart';
 import 'package:workout_planner/widgets/progress_card.dart';
@@ -49,7 +50,7 @@ String formattedDay = dayFormat.format(now);
                 ),),
                 SizedBox(height: 20),
                 ProgressCard(
-                  progressValue:0.3,
+                  progressValue: userData.calculateTotalCaloriesBurned(),
                   total: 100,
                 ),
 
@@ -76,7 +77,7 @@ String formattedDay = dayFormat.format(now);
                         ),
                         SizedBox(height: 20),
                          Text(
-                          "Total Exercises Completed: 30",
+                          "Total Exercises Completed: ${userData.totalExercisesCompleted.toString()}",
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -84,7 +85,7 @@ String formattedDay = dayFormat.format(now);
                           ),
                         ),
                          Text(
-                          "Total Equipment Handovered: 30",
+                          "Total Equipment Handovered: ${userData.totalequipmentHandOvered}",
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.bold,
@@ -109,8 +110,34 @@ String formattedDay = dayFormat.format(now);
                   itemCount: userData.exerciseList.length,
                   itemBuilder: (context, index){
                   Exercise userExercise = userData.exerciseList[index];
-                  return ProfileCard(taskName: userExercise.exercisename, taskImageUrl: userExercise.exerciseImageUrl, markAsDone: () {},);
-                })
+                  return ProfileCard(taskName: userExercise.exercisename, taskImageUrl: userExercise.exerciseImageUrl, 
+                  markAsDone: () {
+                    setState(() {
+                      userData.markExerciseAsCompleted(userExercise.id);
+                    });
+                  },);
+                }),
+
+                SizedBox(height: 10),
+                 Text("Your Equipments", style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: kMainBlackColor,
+                ),),
+                // ExerciseList of the User
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: userData.equipmentList.length,
+                  itemBuilder: (context, index){
+                  Equipment userEquipment = userData.equipmentList[index];
+                  return ProfileCard(taskName: userEquipment.equipmentName, taskImageUrl: userEquipment.equipmentImageUrl, 
+                  markAsDone: () {
+                    setState(() {
+                      userData.markAsHandOvered(userEquipment.id);
+                    });
+                  },);
+                }),
               ],
         ),
       ),
